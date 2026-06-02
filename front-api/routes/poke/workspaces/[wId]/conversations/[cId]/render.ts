@@ -207,7 +207,6 @@ app.post(
     });
 
     const isNewFileExplorer = conversation.metadata?.useFileSystem === true;
-    const hasNestedSkills = await hasFeatureFlag(auth, "nested_skills");
     const useFramesV2 = await hasFeatureFlag(auth, "frames_skill_v2");
 
     const promptSections = constructPromptMultiActions(auth, {
@@ -225,7 +224,6 @@ app.post(
       equippedSkills,
       projectContext,
       isNewFileExplorer,
-      hasNestedSkills,
       useFramesV2,
     });
     const prompt = systemPromptToText(promptSections);

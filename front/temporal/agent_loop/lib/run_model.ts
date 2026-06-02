@@ -378,7 +378,6 @@ export async function runModel(
   const isNewFileExplorer = conversation.metadata?.useFileSystem === true;
   const featureFlags = await getFeatureFlags(auth);
   const hasSandboxTools = featureFlags.includes("sandbox_tools");
-  const hasNestedSkills = featureFlags.includes("nested_skills");
   const useFramesV2 = featureFlags.includes("frames_skill_v2");
 
   const prompt = constructPromptMultiActions(auth, {
@@ -401,7 +400,6 @@ export async function runModel(
     projectContext,
     isNewFileExplorer,
     hasSandboxTools,
-    hasNestedSkills,
     useFramesV2,
   });
   const leadingMessages = removeNulls([
